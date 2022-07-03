@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.426" />
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.426" />
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/drawable/ic_baseline_vpn_key_24.xml" value="0.426" />
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/drawable/ic_defaultgroup.xml" value="0.4855" />
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/drawable/ic_launcher_background.xml" value="0.426" />
         <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/drawable/login_button.xml" value="0.426" />
-        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/activity_home_page.xml" value="0.4234375" />
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/drawable/recomand_button.xml" value="0.425" />
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/activity_home_page.xml" value="0.5" />
         <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/activity_login_page.xml" value="0.5" />
         <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/activity_my_page.xml" value="0.4234375" />
