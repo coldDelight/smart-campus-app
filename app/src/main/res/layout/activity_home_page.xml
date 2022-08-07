@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage">
+    tools:context=".HomeActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -71,20 +71,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/home_note_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="#00FFFFFF"
 
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintEnd_toStartOf="@+id/home_mypage_btn"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_push" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/home_mypage_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#00FFFFFF"
@@ -110,7 +110,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/home_groupsearch_btn"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginTop="20dp"
@@ -194,7 +194,7 @@
         app:srcCompat="@drawable/ic_defaultgroup" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/chatBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"

@@ -3,9 +3,9 @@ package com.example.smart_campus
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class HomePage : AppCompatActivity() {
+class NoteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_page)
+        setContentView(R.layout.activity_note)
     }
 }
