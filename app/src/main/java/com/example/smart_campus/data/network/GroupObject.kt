@@ -6,6 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+//뭔가 다같이 쓰기 가능
 object GroupObject {
     private const val BASE_URL = BuildConfig.BASE_URL
     var token: String = ""

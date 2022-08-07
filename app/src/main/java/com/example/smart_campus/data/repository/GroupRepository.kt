@@ -7,14 +7,9 @@ import com.example.smart_campus.model.Group
 import com.example.smart_campus.model.GroupItem
 
 class GroupRepository(application: Application){
-    suspend fun retrofitSelectAllGroup(): Group {
-        val response = GroupObject.getRetrofitService.getGroup()
-        Log.e("gggg", "retrofitSelectAllGroup: ${response.body()}", )
-        Log.e("gggg", "retrofitSelectAllGroup: ${response}", )
-//        return if (response.isSuccessful) response.body() as Group else Group("false",[]as GroupItem,"true")
-//        return  if (response.isSuccessful) response.body() as Group  else Group("", listOf(GroupItem("","","")),"")
+    suspend fun retrofitSelectAllGroup(type:String): Group {
+        val response = if(type=="All")GroupObject.getRetrofitService.getGroupAll() else GroupObject.getRetrofitService.getGroup()
         return  if (response.isSuccessful) response.body() as Group  else Group(ArrayList())
-
     }
     companion object {
         private var instance: GroupRepository? = null

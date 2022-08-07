@@ -59,7 +59,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setObserver() {
-
         // 뷰모델 관찰
         viewModel.retrofitGroup.observe(this) {
             viewModel.retrofitGroup.value?.let { it1 -> retrofitAdapter.setData(it1) }
