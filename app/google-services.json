@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "735379577737",
+    "project_id": "smart-campus-5eccd",
+    "storage_bucket": "smart-campus-5eccd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735379577737:android:dca5edcf01f479301fdf58",
+        "android_client_info": {
+          "package_name": "com.example.smart_campus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735379577737-4os9fu96vc6okncms4q36mh1tq672bdb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smart_campus",
+            "certificate_hash": "c297033fba81453a5f54e9a3458384861edb95a0"
+          }
+        },
+        {
+          "client_id": "735379577737-o288glb26phnt9e1omretddti9oblj8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiYwPbw4mQasWb2RgE_9sfElS-AaYYaBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735379577737-o288glb26phnt9e1omretddti9oblj8i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

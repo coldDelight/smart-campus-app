@@ -6,6 +6,8 @@ import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.smart_campus.model.Login
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,6 +22,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_page)
+
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if(!task.isSuccessful){
+                return@OnCompleteListener
+            }
+
+            val token = task.result
+            Log.e("token", "onCreate: Token$token", )
+        })
+
+
+
+
 
 
         val retrofit = Retrofit.Builder()
