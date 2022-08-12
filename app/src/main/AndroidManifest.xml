@@ -18,25 +18,25 @@
         android:theme="@style/Theme.Smartcampus"
         tools:targetApi="31">
         <activity
-            android:name=".NoteActivity"
+            android:name=".activity.NoteActivity"
             android:exported="false" />
         <activity
-            android:name=".GroupSearchActivity"
+            android:name=".activity.GroupSearchActivity"
             android:exported="false" />
         <activity
-            android:name=".ChatbotActivity"
+            android:name=".activity.ChatbotActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MyPageActivity"
+            android:name=".activity.MyPageActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

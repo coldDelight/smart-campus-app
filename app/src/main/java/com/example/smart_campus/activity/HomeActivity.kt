@@ -1,10 +1,11 @@
-package com.example.smart_campus
+package com.example.smart_campus.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.lifecycle.ViewModelProvider
+import com.example.smart_campus.R
 import com.example.smart_campus.databinding.ActivityHomePageBinding
 import com.example.smart_campus.presentaion.adapter.GroupRecyclerAdapter
 import com.example.smart_campus.presentaion.viewmodel.GroupViewModel

@@ -1,10 +1,9 @@
-package com.example.smart_campus
+package com.example.smart_campus.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.smart_campus.databinding.ActivityNoteBinding
-import com.example.smart_campus.presentaion.adapter.GroupAllRecyclerAdapter
 import com.example.smart_campus.presentaion.adapter.NoteRecylerAdapter
 import com.example.smart_campus.presentaion.viewmodel.NoteViewModel
 
@@ -22,6 +21,10 @@ class NoteActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         setView() // 리사이클러 뷰 연결
         setObserver() //
+
+        binding.noteBackBtn.setOnClickListener {
+            finish()
+        }
     }
     private fun setView(){
         retrofitAdapter =  NoteRecylerAdapter().apply {

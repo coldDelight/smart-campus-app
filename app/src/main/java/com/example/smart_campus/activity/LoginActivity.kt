@@ -1,7 +1,8 @@
-package com.example.smart_campus
+package com.example.smart_campus.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.smart_campus.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
