@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         Log.e("eee", "onCreate: ${token}", )
         if (token!="NO_TOKEN"){
             val intent = Intent(applicationContext, HomeActivity::class.java)
+            finish()
             startActivity(intent)
         }else{
             SmartCampusApp.prefs.token="NO_TOKEN"
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                     if (loginData != null) {
                         SmartCampusApp.prefs.token = loginData.response.jwt_token
                         val intent = Intent(applicationContext, HomeActivity::class.java)
+                        finish()
                         startActivity(intent)
                     }
                 }

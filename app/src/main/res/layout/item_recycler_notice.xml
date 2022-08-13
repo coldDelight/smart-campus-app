@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.smart_campus.model.NoteItem" />
+            type="com.example.smart_campus.model.NoticeItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,9 +15,11 @@
         android:layout_margin="8dp">
 
         <TextView
-            android:id="@+id/tv__note_title"
-            android:layout_width="300dp"
+            android:id="@+id/tv_notice_title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:gravity="start"
             android:text="Google Teachable Machine AI경진대회"
             android:textColor="#000000"
@@ -28,33 +30,45 @@
             app:layout_constraintHorizontal_bias="0.21"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.352" />
+            app:layout_constraintVertical_bias="0.073" />
 
         <TextView
-            android:id="@+id/tv__note_content"
-            android:layout_width="280dp"
+            android:id="@+id/tv__notice_file"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:text="새로운 공지사항이 올라왔습니다."
+            android:text="1개의 첨부파일"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.347"
+            app:layout_constraintHorizontal_bias="0.065"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.774" />
+            app:layout_constraintVertical_bias="0.647" />
 
         <TextView
-            android:id="@+id/tv_note_date"
+            android:id="@+id/tv_survey_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2022.12.01"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.941"
+            app:layout_constraintHorizontal_bias="0.882"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.064" />
+            app:layout_constraintVertical_bias="0.647" />
+
+        <TextView
+            android:id="@+id/tv_notice_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022.12.01"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.882"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.647" />
 
         <View
             android:id="@+id/view"

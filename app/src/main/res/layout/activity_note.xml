@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         tools:context=".activity.NoteActivity">
         <ImageButton
-            android:id="@+id/note_back_btn"
+            android:id="@+id/group_back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -29,10 +29,10 @@
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/note_back_btn"
+            app:layout_constraintBottom_toBottomOf="@+id/group_back_btn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/note_back_btn"
-            app:layout_constraintTop_toTopOf="@+id/note_back_btn" />
+            app:layout_constraintStart_toStartOf="@+id/group_back_btn"
+            app:layout_constraintTop_toTopOf="@+id/group_back_btn" />
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"

@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 //뭔가 다같이 쓰기 가능
-object GroupObject {
+object NewworkObject {
     private const val BASE_URL = BuildConfig.BASE_URL
     var token: String = ""
     private val okHttpClient = OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().apply {
@@ -32,7 +32,7 @@ object GroupObject {
             .build()
     }
 
-    val getRetrofitService : GroupInterface by lazy{
-        getRetrofit.create(GroupInterface::class.java)
+    val getRetrofitService : ApiInterface by lazy{
+        getRetrofit.create(ApiInterface::class.java)
     }
 }

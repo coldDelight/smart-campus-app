@@ -3,14 +3,14 @@ package com.example.smart_campus.data.repository
 import android.app.Application
 import android.util.Log
 import com.example.smart_campus.data.network.NewworkObject
-import com.example.smart_campus.model.Note
+import com.example.smart_campus.model.Notice
 
-class NoteRepository(application: Application){
-    suspend fun retrofitSelectNote(): Note {
-        val response =  NewworkObject.getRetrofitService.getNote()
+class NoticeRepository(){
+    suspend fun retrofitSelectNotice(): Notice {
+        val response =  NewworkObject.getRetrofitService.getNotice()
         Log.e("body", "NoteRepository: ${response.body()}", )
 
-        return  if (response.isSuccessful) response.body() as Note else Note(ArrayList())
+        return  if (response.isSuccessful) response.body() as Notice else Notice(ArrayList())
     }
     companion object {
         private var instance: NoteRepository? = null

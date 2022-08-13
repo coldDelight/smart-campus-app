@@ -2,10 +2,11 @@ package com.example.smart_campus.data.network
 
 import com.example.smart_campus.model.Group
 import com.example.smart_campus.model.Note
+import com.example.smart_campus.model.Notice
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface GroupInterface {
+interface ApiInterface {
     @GET("/api/group/user-group-list")
     suspend fun getGroup(): Response<Group>
 
@@ -14,4 +15,7 @@ interface GroupInterface {
 
     @GET("/api/push/my-push-log")
     suspend fun getNote(): Response<Note>
+
+    @GET("/api/notice/all-app?group_id=4")
+    suspend fun getNotice(): Response<Notice>
 }
