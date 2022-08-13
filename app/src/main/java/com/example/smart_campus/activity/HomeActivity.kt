@@ -49,6 +49,12 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        retrofitAdapter.onItemClick = {
+            val intent = Intent(applicationContext, GroupActivity::class.java)
+            intent.putExtra("group_id",it)
+            startActivity(intent)
+        }
+
 
     }
 

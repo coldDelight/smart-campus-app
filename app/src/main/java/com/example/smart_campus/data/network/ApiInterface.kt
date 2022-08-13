@@ -3,6 +3,7 @@ package com.example.smart_campus.data.network
 import com.example.smart_campus.model.Group
 import com.example.smart_campus.model.Note
 import com.example.smart_campus.model.Notice
+import com.example.smart_campus.model.Survey
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -18,4 +19,6 @@ interface ApiInterface {
 
     @GET("/api/notice/all-app?group_id=4")
     suspend fun getNotice(): Response<Notice>
+    @GET("/api/program/app_program")
+    suspend fun getSurvey(): Response<Survey>
 }

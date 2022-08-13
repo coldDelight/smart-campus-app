@@ -4,16 +4,16 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.smart_campus.databinding.ItemRecyclerNoticeBinding
+import com.example.smart_campus.databinding.ItemRecyclerSurveyBinding
 import com.example.smart_campus.model.Survey
 import com.example.smart_campus.model.SurveyItem
 
-class SurveyRecyclerAdapter : RecyclerView.Adapter<SurveyRecyclerAdapter.ViewHolder>() {
+class SurveyViewPagerAdapter : RecyclerView.Adapter<SurveyViewPagerAdapter.ViewHolder>() {
     private var items: Survey = Survey(ArrayList())
 
     // 뷰 홀더 만들어서 반환
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemRecyclerNoticeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemRecyclerSurveyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
     // 전달받은 위치의 아이템 연결
@@ -21,10 +21,10 @@ class SurveyRecyclerAdapter : RecyclerView.Adapter<SurveyRecyclerAdapter.ViewHol
         holder.setItem(items.response[position])
     }
     // 뷰 홀더 설정
-    inner class ViewHolder(private val binding: ItemRecyclerNoticeBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemRecyclerSurveyBinding) : RecyclerView.ViewHolder(binding.root) {
         fun setItem(item: SurveyItem){
-            binding.tvNoticeTitle.text =  item.title
-            binding.tvNoticeDate.text =  item.create_time.subSequence(0,10)
+            binding.tvSurveyTitle.text =  item.title
+            binding.tvSurveyDate.text =  item.create_time.subSequence(0,10)
         }
     }
     override fun getItemViewType(position: Int): Int {
