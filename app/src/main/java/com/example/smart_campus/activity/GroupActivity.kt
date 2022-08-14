@@ -1,5 +1,6 @@
 package com.example.smart_campus.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -37,6 +38,12 @@ class GroupActivity : AppCompatActivity() {
 
         binding.groupBackBtn.setOnClickListener {
             finish()
+        }
+
+        noticeAdapter.onItemClick = {
+            val intent = Intent(applicationContext, NoticeDetailActivity::class.java)
+            intent.putExtra("group_id",it)
+            startActivity(intent)
         }
 
 
