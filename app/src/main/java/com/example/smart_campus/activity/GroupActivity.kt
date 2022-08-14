@@ -8,6 +8,8 @@ import com.example.smart_campus.databinding.ActivityGroupBinding
 import com.example.smart_campus.presentaion.adapter.NoticeRecyclerAdapter
 import com.example.smart_campus.presentaion.adapter.SurveyViewPagerAdapter
 import com.example.smart_campus.presentaion.viewmodel.GroupHomeViewModel
+import com.example.smart_campus.R
+
 
 class GroupActivity : AppCompatActivity() {
 
@@ -37,6 +39,7 @@ class GroupActivity : AppCompatActivity() {
             finish()
         }
 
+
     }
 
 
@@ -49,14 +52,14 @@ class GroupActivity : AppCompatActivity() {
         surveyAdapter =  SurveyViewPagerAdapter().apply {
             setHasStableIds(true) // 리사이클러 뷰 업데이트 시 깜빡임 방지
         }
-//        val pageMarginPx = 20 // dimen 파일 안에 크기를 정의해두었다.
-//        val pagerWidth = 400 // dimen 파일이 없으면 생성해야함
-//        val screenWidth = resources.displayMetrics.widthPixels // 스마트폰의 너비 길이를 가져옴
-//        val offsetPx = screenWidth - pageMarginPx - pagerWidth
-//
-//        binding.pgGroupSurvey.setPageTransformer { page, position ->
-//            page.translationX = position * -offsetPx
-//        }
+        val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin) // dimens.xml 파일 안에 크기를 정의해두었다. (200dp)
+        val pagerWidth = resources.getDimensionPixelOffset(R.dimen.pageWidth) // dimens.xml 파일이 없으면 생성해야함 (50dp)
+        val screenWidth = resources.displayMetrics.widthPixels // 스마트폰의 너비 길이를 가져옴
+        val offsetPx = screenWidth - pageMarginPx - pagerWidth
+
+        binding.pgGroupSurvey.setPageTransformer { page, position ->
+            page.translationX = position * -offsetPx
+        }
         binding.pgGroupSurvey.offscreenPageLimit = 1 // 몇 개의 페이지를 미리 로드 해둘것인지
         binding.pgGroupSurvey.adapter = surveyAdapter // 리사이클러 뷰 연결
     }
