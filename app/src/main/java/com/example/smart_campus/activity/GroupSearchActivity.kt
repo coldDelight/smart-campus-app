@@ -17,6 +17,10 @@ class GroupSearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        binding.groupshBackBtn.setOnClickListener {
+            finish()
+        }
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         setView() // 리사이클러 뷰 연결

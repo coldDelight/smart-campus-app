@@ -10,6 +10,8 @@ import com.example.smart_campus.model.SurveyItem
 
 class SurveyViewPagerAdapter : RecyclerView.Adapter<SurveyViewPagerAdapter.ViewHolder>() {
     private var items: Survey = Survey(ArrayList())
+    lateinit var onItemClick : (Int)->Unit
+
 
     // 뷰 홀더 만들어서 반환
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -18,6 +20,10 @@ class SurveyViewPagerAdapter : RecyclerView.Adapter<SurveyViewPagerAdapter.ViewH
     }
     // 전달받은 위치의 아이템 연결
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.itemView.setOnClickListener{
+            onItemClick(position)
+
+        }
         holder.setItem(items.response[position])
     }
     // 뷰 홀더 설정

@@ -10,6 +10,7 @@ import com.example.smart_campus.presentaion.adapter.NoticeRecyclerAdapter
 import com.example.smart_campus.presentaion.adapter.SurveyViewPagerAdapter
 import com.example.smart_campus.presentaion.viewmodel.GroupHomeViewModel
 import com.example.smart_campus.R
+import com.example.smart_campus.SurveyDetailActivity
 
 
 class GroupActivity : AppCompatActivity() {
@@ -45,6 +46,13 @@ class GroupActivity : AppCompatActivity() {
             intent.putExtra("group_id",it)
             startActivity(intent)
         }
+
+        surveyAdapter.onItemClick = {
+            val intent = Intent(applicationContext, SurveyDetailActivity::class.java)
+            intent.putExtra("group_id",it)
+            startActivity(intent)
+        }
+
 
 
     }
