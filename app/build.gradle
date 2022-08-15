@@ -22,6 +22,7 @@ android {
 
 
         buildConfigField "String", "BASE_URL", "\"${properties.getProperty("BASE_URL")}\""
+        buildConfigField "String", "CHAT_URL", "\"${properties.getProperty("CHAT_URL")}\""
     }
 
     buildTypes {

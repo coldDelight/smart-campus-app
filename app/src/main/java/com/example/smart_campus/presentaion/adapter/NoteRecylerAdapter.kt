@@ -43,8 +43,6 @@ class NoteRecylerAdapter : RecyclerView.Adapter<NoteRecylerAdapter.ViewHolder>()
     // 아이템 갯수
 //    override fun getItemCount() = items.data.size
     override fun getItemCount():Int{
-        Log.e("fffffffff", "getItemCount:    ${items.response.size}", )
-        
         return items.response.size
     }
 

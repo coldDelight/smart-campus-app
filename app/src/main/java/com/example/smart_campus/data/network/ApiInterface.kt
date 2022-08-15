@@ -1,11 +1,12 @@
 package com.example.smart_campus.data.network
 
-import com.example.smart_campus.model.Group
-import com.example.smart_campus.model.Note
-import com.example.smart_campus.model.Notice
-import com.example.smart_campus.model.Survey
+import com.example.smart_campus.model.*
+import com.google.gson.JsonObject
+import com.google.gson.annotations.SerializedName
 import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface ApiInterface {
     @GET("/api/group/user-group-list")
@@ -19,6 +20,13 @@ interface ApiInterface {
 
     @GET("/api/notice/all-app?group_id=4")
     suspend fun getNotice(): Response<Notice>
+
     @GET("/api/program/app_program")
     suspend fun getSurvey(): Response<Survey>
+
+    @GET("/hello")
+    suspend fun getChatStart(): Response<ChatbotStart>
+
+    @POST("/query/NORMAL")
+    suspend fun postCahtbot(@Body query:JsonObject): Response<Chatbot>
 }

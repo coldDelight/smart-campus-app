@@ -50,7 +50,7 @@
 
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/edit_text_cahtbot"
             android:layout_width="367dp"
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
@@ -68,11 +68,11 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_text_cahtbot"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_cahtbot"
         app:layout_constraintHorizontal_bias="0.944"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_cahtbot"
+        app:layout_constraintTop_toTopOf="@+id/edit_text_cahtbot"
         app:srcCompat="@drawable/ic_baseline_search_24" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -85,7 +85,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/edit_text_cahtbot"
             app:layout_constraintVertical_bias="0.202" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

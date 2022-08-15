@@ -5,6 +5,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 //뭔가 다같이 쓰기 가능
 object NewworkObject {
@@ -22,7 +23,10 @@ object NewworkObject {
         // Response
         val response = it.proceed(request)
         response
-    }.build()
+    }.connectTimeout(20,TimeUnit.SECONDS).
+    readTimeout(20,TimeUnit.SECONDS).
+    writeTimeout(20,TimeUnit.SECONDS).
+    build()
 
     private val getRetrofit by lazy{
         Retrofit.Builder()
@@ -32,7 +36,19 @@ object NewworkObject {
             .build()
     }
 
+    private val getRetrofitChat by lazy{
+        Retrofit.Builder()
+            .baseUrl(BuildConfig.CHAT_URL)
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
     val getRetrofitService : ApiInterface by lazy{
         getRetrofit.create(ApiInterface::class.java)
+    }
+
+    val getRetrofitServiceChat : ApiInterface by lazy{
+        getRetrofitChat.create(ApiInterface::class.java)
     }
 }
