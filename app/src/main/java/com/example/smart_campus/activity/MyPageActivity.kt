@@ -17,10 +17,10 @@ class MyPageActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.logoutBtn.setOnClickListener {
-            SmartCampusApp.prefs.token="NO_TOKEN"
+            SmartCampusApp.prefs.token="NoTOKEN"
             val intent = Intent(applicationContext, LoginActivity::class.java)
+            finishAffinity()
             startActivity(intent)
-
         }
         binding.myBackBtn.setOnClickListener {
             finish()

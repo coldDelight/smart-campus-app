@@ -1,7 +1,7 @@
 package com.example.smart_campus.model
 
+import com.google.gson.annotations.SerializedName
+
 data class Login(
-    val success: String,
-    val response : UserInfo,
-    val error: String
+    @SerializedName("response") val response: LoginItem
 )

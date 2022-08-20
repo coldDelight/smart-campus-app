@@ -29,4 +29,7 @@ interface ApiInterface {
 
     @POST("/query/NORMAL")
     suspend fun postCahtbot(@Body query:JsonObject): Response<Chatbot>
+
+    @POST("/api/auth/login")
+    suspend fun postLogin(@Body query:JsonObject): Response<Login>
 }

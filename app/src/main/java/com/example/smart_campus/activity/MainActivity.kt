@@ -24,59 +24,50 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_page)
-
+        //파베 테스트
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if(!task.isSuccessful){
                 return@OnCompleteListener
             }
             val token = task.result
-            Log.e("token", "onCreate: Token$token", )
         })
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
-//            .baseUrl("http://210.119.104.203/:80/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val loginService: LoginService = retrofit.create(LoginService::class.java)
-        val userAuth = JsonObject()
-        userAuth.addProperty("user_id", "20171302")
-        userAuth.addProperty("pwd", "1q2w3e4r~!")
-
-        val loginBtn = findViewById<Button>(R.id.button_login_login)
         val token = SmartCampusApp.prefs.token
-        Log.e("eee", "onCreate: ${token}", )
-        if (token!="NO_TOKEN"){
-            val intent = Intent(applicationContext, HomeActivity::class.java)
+        if(token=="NoTOKEN"){
+            val intent = Intent(applicationContext, LoginActivity::class.java)
             finish()
             startActivity(intent)
         }else{
-            SmartCampusApp.prefs.token="NO_TOKEN"
+            val intent = Intent(applicationContext, HomeActivity::class.java)
+            finish()
+            startActivity(intent)
         }
-        loginBtn.setOnClickListener() {
-            Log.e("dddd", "onCreate: $userAuth",)
 
-            loginService.requestLogin(userAuth).enqueue(object : Callback<Login> {
-                //                loginService.requestLogin(paramData).enqueue(object :Callback<Login>{
-                override fun onResponse(call: Call<Login>, response: Response<Login>) {
-                    val loginData = response.body()
-                    if (loginData != null) {
-                        SmartCampusApp.prefs.token = loginData.response.jwt_token
-                        val intent = Intent(applicationContext, HomeActivity::class.java)
-                        finish()
-                        startActivity(intent)
-                    }
-                }
-                override fun onFailure(call: Call<Login>, t: Throwable) {
-                    Log.e("err", "onFailure: ${t.message}",)
-                }
-
-            })
-
-
-
-
-        }
+//        val token = SmartCampusApp.prefs.token
+//        if (token!="NO_TOKEN"){
+//            val intent = Intent(applicationContext, HomeActivity::class.java)
+//            finish()
+//            startActivity(intent)
+//        }else{
+//            SmartCampusApp.prefs.token="NO_TOKEN"
+//        }
+//        loginBtn.setOnClickListener() {
+//            Log.e("dddd", "onCreate: $userAuth",)
+//
+//            loginService.requestLogin(userAuth).enqueue(object : Callback<Login> {
+//                //                loginService.requestLogin(paramData).enqueue(object :Callback<Login>{
+//                override fun onResponse(call: Call<Login>, response: Response<Login>) {
+//                    val loginData = response.body()
+//                    if (loginData != null) {
+//                        SmartCampusApp.prefs.token = loginData.response.jwt_token
+//                        val intent = Intent(applicationContext, HomeActivity::class.java)
+//                        finish()
+//                        startActivity(intent)
+//                    }
+//                }
+//                override fun onFailure(call: Call<Login>, t: Throwable) {
+//                    Log.e("err", "onFailure: ${t.message}",)
+//                }
+//            })
+//        }
     }
 }
