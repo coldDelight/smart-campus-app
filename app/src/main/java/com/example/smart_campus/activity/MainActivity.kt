@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             val token = task.result
         })
         val token = SmartCampusApp.prefs.token
-        if(token=="NoTOKEN"){
+        if(token==R.string.default_jwt.toString()){
             val intent = Intent(applicationContext, LoginActivity::class.java)
             finish()
             startActivity(intent)

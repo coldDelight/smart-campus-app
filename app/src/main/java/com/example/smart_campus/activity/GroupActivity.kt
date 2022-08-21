@@ -29,8 +29,6 @@ class GroupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         val group_id = intent.getIntExtra("group_id",-1)
-        Log.e("dddddd", "onCreate: $group_id" )
-
         binding.viewModel = viewModel
 
         binding.lifecycleOwner = this
@@ -52,12 +50,7 @@ class GroupActivity : AppCompatActivity() {
             intent.putExtra("group_id",it)
             startActivity(intent)
         }
-
-
-
     }
-
-
     private fun setView(){
         noticeAdapter =  NoticeRecyclerAdapter().apply {
             setHasStableIds(true) // 리사이클러 뷰 업데이트 시 깜빡임 방지

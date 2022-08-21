@@ -17,7 +17,7 @@ class MyPageActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.logoutBtn.setOnClickListener {
-            SmartCampusApp.prefs.token="NoTOKEN"
+            SmartCampusApp.prefs.token=R.string.default_jwt.toString()
             val intent = Intent(applicationContext, LoginActivity::class.java)
             finishAffinity()
             startActivity(intent)
