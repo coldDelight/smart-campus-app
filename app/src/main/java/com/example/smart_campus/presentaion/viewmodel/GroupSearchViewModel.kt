@@ -1,6 +1,8 @@
 package com.example.smart_campus.presentaion.viewmodel
 
 import android.app.Application
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -8,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.smart_campus.data.repository.GroupRepository
 import com.example.smart_campus.model.Group
 import kotlinx.coroutines.launch
+
 
 class GroupSearchViewModel(private val repository: GroupRepository):ViewModel() {
     private val _retrofitGroup = MutableLiveData<Group>()
@@ -18,6 +21,16 @@ class GroupSearchViewModel(private val repository: GroupRepository):ViewModel() 
         viewModelScope.launch {
             _retrofitGroup.value = repository.retrofitSelectAllGroup("All")
         }
+    }
+
+    fun addGroup(group_id:String){
+        viewModelScope.launch {
+            repository.retrofitAddGroup(group_id)
+            Log.e("group add", "addGroup: 추가함", )
+        }
+
+
+
     }
 
     class Factory(private val application : Application) : ViewModelProvider.Factory { // factory pattern

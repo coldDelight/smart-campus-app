@@ -9,6 +9,7 @@ import com.example.smart_campus.presentaion.viewmodel.GroupSearchViewModel
 
 class GroupSearchActivity : AppCompatActivity() {
 
+
     private val binding by lazy { ActivityGroupSearchBinding.inflate(layoutInflater) }
     private val viewModel by lazy { ViewModelProvider(this,
         GroupSearchViewModel.Factory(application))[GroupSearchViewModel::class.java] }
@@ -25,12 +26,17 @@ class GroupSearchActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         setView() // 리사이클러 뷰 연결
         setObserver() // 뷰모델을 관찰합니다.
+
+        retrofitAdapter.onAddClick = {
+            viewModel.addGroup(it)
+        }
+
     }
     private fun setView(){
         retrofitAdapter =  GroupAllRecyclerAdapter().apply {
             setHasStableIds(true) // 리사이클러 뷰 업데이트 시 깜빡임 방지
         }
-        binding.homeActivityGrouprv.adapter = retrofitAdapter // 리사이클러 뷰 연결
+        binding.rvAllGroup.adapter = retrofitAdapter // 리사이클러 뷰 연결
     }
     private fun setObserver() {
         // 뷰모델 관찰

@@ -20,6 +20,12 @@ class GroupViewModel(private val repository: GroupRepository):ViewModel() {
         }
     }
 
+    fun reLoad(){
+        viewModelScope.launch {
+            _retrofitGroup.value = repository.retrofitSelectAllGroup("My")
+        }
+    }
+
     class Factory(private val application : Application) : ViewModelProvider.Factory { // factory pattern
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return GroupViewModel(GroupRepository.getInstance(application)!!) as T

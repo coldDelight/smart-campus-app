@@ -15,6 +15,9 @@ interface ApiInterface {
     @GET("/api/group/all-group-app")
     suspend fun getGroupAll(): Response<Group>
 
+    @POST("/api/group/add-group")
+    suspend fun addGroup(@Body query:JsonObject): Response<GroupEdit>
+
     @GET("/api/push/my-push-log")
     suspend fun getNote(): Response<Note>
 
