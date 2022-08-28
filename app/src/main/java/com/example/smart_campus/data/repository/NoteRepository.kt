@@ -8,8 +8,6 @@ import com.example.smart_campus.model.Note
 class NoteRepository(application: Application){
     suspend fun retrofitSelectNote(): Note {
         val response =  NewworkObject.getRetrofitService.getNote()
-        Log.e("body", "NoteRepository: ${response.body()}", )
-
         return  if (response.isSuccessful) response.body() as Note else Note(ArrayList())
     }
     companion object {
