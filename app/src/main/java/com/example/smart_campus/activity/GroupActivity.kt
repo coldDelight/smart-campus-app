@@ -47,7 +47,7 @@ class GroupActivity : AppCompatActivity() {
 
         surveyAdapter.onItemClick = {
             val intent = Intent(applicationContext, SurveyDetailActivity::class.java)
-            intent.putExtra("group_id",it)
+            intent.putExtra("survey_id",it)
             startActivity(intent)
         }
     }

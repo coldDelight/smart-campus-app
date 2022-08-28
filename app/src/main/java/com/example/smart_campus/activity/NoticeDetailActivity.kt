@@ -3,11 +3,16 @@ package com.example.smart_campus.activity
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import com.example.smart_campus.databinding.ActivityNoticeDetailBinding
+import com.example.smart_campus.presentaion.viewmodel.NoteViewModel
+import com.example.smart_campus.presentaion.viewmodel.SurveyDetailViewModel
 
 
 class NoticeDetailActivity : AppCompatActivity() {
     private val binding by lazy { ActivityNoticeDetailBinding.inflate(layoutInflater) }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

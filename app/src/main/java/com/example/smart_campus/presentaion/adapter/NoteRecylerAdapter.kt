@@ -30,6 +30,8 @@ class NoteRecylerAdapter : RecyclerView.Adapter<NoteRecylerAdapter.ViewHolder>()
             binding.tvNoteDate.text =  item.push_date.subSequence(0,10)
         }
     }
+
+
     override fun getItemViewType(position: Int): Int {
         return position
     }

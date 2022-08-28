@@ -21,7 +21,7 @@ class SurveyViewPagerAdapter : RecyclerView.Adapter<SurveyViewPagerAdapter.ViewH
     // 전달받은 위치의 아이템 연결
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.setOnClickListener{
-            onItemClick(position)
+            onItemClick(items.response[position].survey_id.toInt())
 
         }
         holder.setItem(items.response[position])

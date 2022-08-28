@@ -28,6 +28,9 @@ interface ApiInterface {
     @GET("/api/survey/all-app")
     suspend fun getSurvey(@Query("group_id") group_id: String): Response<Survey>
 
+    @GET("/api/survey/detail")
+    suspend fun getSurveyDetail(@Query("survey_id") survey_id: String): Response<SurveyDetail>
+
     @GET("/hello")
     suspend fun getChatStart(): Response<ChatbotStart>
 
