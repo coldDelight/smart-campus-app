@@ -9,6 +9,7 @@ import com.example.smart_campus.data.repository.GroupRepository
 import com.example.smart_campus.model.Group
 import kotlinx.coroutines.launch
 
+//홈 화면
 class GroupViewModel(private val repository: GroupRepository):ViewModel() {
     private val _retrofitGroup = MutableLiveData<Group>()
     val retrofitGroup: MutableLiveData<Group>

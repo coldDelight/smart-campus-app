@@ -1,11 +1,10 @@
 package com.example.smart_campus.data.repository
 
-import android.app.Application
 import android.util.Log
 import com.example.smart_campus.data.network.NewworkObject
+import com.example.smart_campus.model.Error
 import com.example.smart_campus.model.Login
 import com.example.smart_campus.model.LoginItem
-import com.example.smart_campus.model.Note
 import com.google.gson.JsonObject
 
 class LoginRepository(){
@@ -17,7 +16,7 @@ class LoginRepository(){
         val response =  NewworkObject.getRetrofitService.postLogin(jsonData)
 
 
-        return  if (response.isSuccessful) response.body() as Login else Login(LoginItem("","","","","",""))
+        return  if (response.isSuccessful) response.body() as Login else Login(LoginItem("","","","","",""),Error("학번 혹은 비밀번호를 다시 확인하세요."))
 
     }
     companion object {

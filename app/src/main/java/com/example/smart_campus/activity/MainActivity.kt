@@ -2,22 +2,11 @@ package com.example.smart_campus.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.smart_campus.BuildConfig
-import com.example.smart_campus.LoginService
 import com.example.smart_campus.R
 import com.example.smart_campus.SmartCampusApp
-import com.example.smart_campus.model.Login
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
-import com.google.gson.JsonObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 //@AndroidEntryPoint// DI 필요
 class MainActivity : AppCompatActivity() {

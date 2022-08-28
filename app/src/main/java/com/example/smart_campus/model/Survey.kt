@@ -7,3 +7,9 @@ data class Survey(
     @SerializedName("response") val response: List<SurveyItem>,
 //    @SerializedName("error") val error: String,
 )
+data class SurveyItem(
+    @SerializedName("survey_id") val  survey_id: String,
+    @SerializedName("title") val  title: String,
+    @SerializedName("create_time") val   create_time: String,
+    @SerializedName("end_time") val   end_time: String
+)

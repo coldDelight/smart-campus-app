@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smart_campus.databinding.ItemRecyclerGroupBinding
 import com.example.smart_campus.model.Group
+import com.example.smart_campus.model.GroupInfo
 import com.example.smart_campus.model.GroupItem
 
+//홈 화면
 class GroupRecyclerAdapter() : RecyclerView.Adapter<GroupRecyclerAdapter.ViewHolder>() {
 private var items: Group = Group(ArrayList())
-    lateinit var onItemClick : (Int)->Unit
+    lateinit var onItemClick : (GroupInfo)->Unit
     lateinit var onDelClick : (String)->Unit
 
     var isDelSate = false
@@ -24,7 +26,7 @@ private var items: Group = Group(ArrayList())
     // 전달받은 위치의 아이템 연결
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.setOnClickListener{
-            onItemClick(position)
+            onItemClick(GroupInfo(items.response[position].group_id,items.response[position].group_name,items.response[position].intro))
         }
         if(isDelSate){
             holder.checkBox.visibility = View.VISIBLE

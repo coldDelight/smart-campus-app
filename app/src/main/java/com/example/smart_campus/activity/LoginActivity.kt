@@ -1,16 +1,13 @@
 package com.example.smart_campus.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.smart_campus.R
 import com.example.smart_campus.SmartCampusApp
-import com.example.smart_campus.databinding.ActivityChatbotBinding
 import com.example.smart_campus.databinding.ActivityLoginPageBinding
-import com.example.smart_campus.presentaion.adapter.ChatbotRecyclerAdapter
-import com.example.smart_campus.presentaion.viewmodel.ChatbotViewModel
 import com.example.smart_campus.presentaion.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -37,6 +34,9 @@ class LoginActivity : AppCompatActivity() {
                 val intent = Intent(applicationContext, HomeActivity::class.java)
                 finish()
                 startActivity(intent)
+            }else{
+                val myToast = Toast.makeText(this, it.error.message, Toast.LENGTH_SHORT)
+                myToast.show()
             }
         }
     }

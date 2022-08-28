@@ -7,6 +7,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiInterface {
     @GET("/api/group/user-group-list")
@@ -21,11 +22,11 @@ interface ApiInterface {
     @GET("/api/push/my-push-log")
     suspend fun getNote(): Response<Note>
 
-    @GET("/api/notice/all-app?group_id=4")
-    suspend fun getNotice(): Response<Notice>
+    @GET("/api/notice/all-app")
+    suspend fun getNotice(@Query("group_id") group_id: String): Response<Notice>
 
-    @GET("/api/program/app_program")
-    suspend fun getSurvey(): Response<Survey>
+    @GET("/api/survey/all-app")
+    suspend fun getSurvey(@Query("group_id") group_id: String): Response<Survey>
 
     @GET("/hello")
     suspend fun getChatStart(): Response<ChatbotStart>

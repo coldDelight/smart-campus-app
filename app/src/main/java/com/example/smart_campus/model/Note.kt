@@ -7,3 +7,8 @@ data class Note(
     @SerializedName("response") val response: List<NoteItem>,
 //    @SerializedName("error") val error: String,
 )
+data class NoteItem(
+    @SerializedName("push_title") val  push_title: String,
+    @SerializedName("push_content") val  push_content: String,
+    @SerializedName("push_date") val  push_date: String
+)

@@ -26,11 +26,7 @@ class GroupSearchViewModel(private val repository: GroupRepository):ViewModel() 
     fun addGroup(group_id:String){
         viewModelScope.launch {
             repository.retrofitAddGroup(group_id)
-            Log.e("group add", "addGroup: 추가함", )
         }
-
-
-
     }
 
     class Factory(private val application : Application) : ViewModelProvider.Factory { // factory pattern

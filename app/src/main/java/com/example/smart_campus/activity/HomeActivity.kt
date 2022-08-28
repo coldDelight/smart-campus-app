@@ -25,41 +25,15 @@ class HomeActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         setView() // 리사이클러 뷰 연결
         setObserver() // 뷰모델을 관찰합니다.
-        val chatBtn = findViewById<ImageButton>(R.id.chatBtn)
-        val groupSearchBtn = findViewById<ImageButton>(R.id.btn_group_search)
-        val myPageBtn = findViewById<ImageButton>(R.id.home_mypage_btn)
-        val noteBtn = findViewById<ImageButton>(R.id.home_note_btn)
-
-        chatBtn.setOnClickListener(){
-            val intent = Intent(applicationContext, ChatbotActivity::class.java)
-            startActivity(intent)
-        }
-
-        groupSearchBtn.setOnClickListener(){
-            val intent = Intent(applicationContext, GroupSearchActivity::class.java)
-            startActivity(intent)
-        }
-        myPageBtn.setOnClickListener(){
-            val intent = Intent(applicationContext, MyPageActivity::class.java)
-            startActivity(intent)
-        }
-        noteBtn.setOnClickListener(){
-            val intent = Intent(applicationContext, NoteActivity::class.java)
-            startActivity(intent)
-        }
+        setButton()
 
         retrofitAdapter.onItemClick = {
             val intent = Intent(applicationContext, GroupActivity::class.java)
-            intent.putExtra("group_id",it)
+            intent.putExtra("group_id",it.id.toInt())
+            intent.putExtra("group_name",it.name)
+            intent.putExtra("group_intro",it.intro)
             startActivity(intent)
         }
-
-        binding.btnGroupDel.setOnClickListener {
-            retrofitAdapter.isDelSate = !retrofitAdapter.isDelSate
-            retrofitAdapter.notifyDataSetChanged()
-
-        }
-
     }
 
     override fun onStart() {
@@ -76,6 +50,7 @@ class HomeActivity : AppCompatActivity() {
             setClamp((resources.displayMetrics.widthPixels.toFloat() / 4))
         }
         ItemTouchHelper(swipeHelper).attachToRecyclerView(binding.rvAllGroup)
+
         binding.rvAllGroup.setOnTouchListener { _, _ ->
             swipeHelper.removePreviousClamp(binding.rvAllGroup)
             false
@@ -84,6 +59,33 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
+
+    private fun setButton(){
+        binding.btnGroupDel.setOnClickListener {
+            retrofitAdapter.isDelSate = !retrofitAdapter.isDelSate
+            retrofitAdapter.notifyDataSetChanged()
+
+        }
+        binding.chatBtn.setOnClickListener(){
+            val intent = Intent(applicationContext, ChatbotActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnGroupSearch.setOnClickListener(){
+            val intent = Intent(applicationContext, GroupSearchActivity::class.java)
+            startActivity(intent)
+        }
+        binding.homeMypageBtn.setOnClickListener(){
+            val intent = Intent(applicationContext, MyPageActivity::class.java)
+            startActivity(intent)
+        }
+        binding.homeNoteBtn.setOnClickListener(){
+            val intent = Intent(applicationContext, NoteActivity::class.java)
+            startActivity(intent)
+        }
+
+
+    }
     private fun setObserver() {
         // 뷰모델 관찰
         viewModel.retrofitGroup.observe(this) {

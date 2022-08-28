@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.smart_campus.databinding.ActivityGroupBinding
 import com.example.smart_campus.presentaion.adapter.NoticeRecyclerAdapter
@@ -18,7 +19,7 @@ class GroupActivity : AppCompatActivity() {
     private val binding by lazy { ActivityGroupBinding.inflate(layoutInflater)
     }
     private val viewModel by lazy { ViewModelProvider(this,
-        GroupHomeViewModel.Factory())[GroupHomeViewModel::class.java] }
+        GroupHomeViewModel.Factory(intent.getIntExtra("group_id",-1)))[GroupHomeViewModel::class.java] }
 
     private lateinit var noticeAdapter: NoticeRecyclerAdapter
     private lateinit var surveyAdapter: SurveyViewPagerAdapter
@@ -28,7 +29,6 @@ class GroupActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        val group_id = intent.getIntExtra("group_id",-1)
         binding.viewModel = viewModel
 
         binding.lifecycleOwner = this
@@ -52,6 +52,10 @@ class GroupActivity : AppCompatActivity() {
         }
     }
     private fun setView(){
+        binding.tvGroupName.text = intent.getStringExtra("group_name")
+        binding.tvGroupIntro.text = intent.getStringExtra("group_intro")
+
+
         noticeAdapter =  NoticeRecyclerAdapter().apply {
             setHasStableIds(true) // 리사이클러 뷰 업데이트 시 깜빡임 방지
         }
@@ -71,6 +75,7 @@ class GroupActivity : AppCompatActivity() {
         binding.pgGroupSurvey.offscreenPageLimit = 1 // 몇 개의 페이지를 미리 로드 해둘것인지
         binding.pgGroupSurvey.adapter = surveyAdapter // 리사이클러 뷰 연결
     }
+
     private fun setObserver() {
         // 뷰모델 관찰
         viewModel.retrofitNotice.observe(this) {
