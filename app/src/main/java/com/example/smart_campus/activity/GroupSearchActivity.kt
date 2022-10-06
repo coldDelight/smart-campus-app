@@ -28,7 +28,7 @@ class GroupSearchActivity : AppCompatActivity() {
         setObserver() // 뷰모델을 관찰합니다.
 
         retrofitAdapter.onAddClick = {
-            viewModel.addGroup(it)
+            viewModel.addGroup(it,this)
         }
 
     }

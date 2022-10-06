@@ -41,7 +41,7 @@ class GroupActivity : AppCompatActivity() {
 
         noticeAdapter.onItemClick = {
             val intent = Intent(applicationContext, NoticeDetailActivity::class.java)
-            intent.putExtra("group_id",it)
+            intent.putExtra("notice_id",it)
             startActivity(intent)
         }
 

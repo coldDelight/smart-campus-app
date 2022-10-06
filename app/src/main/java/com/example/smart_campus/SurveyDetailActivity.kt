@@ -3,6 +3,7 @@ package com.example.smart_campus
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.smart_campus.databinding.ActivityNoticeDetailBinding
 import com.example.smart_campus.databinding.ActivitySurveyDetailBinding
@@ -27,6 +28,10 @@ class SurveyDetailActivity : AppCompatActivity() {
         setObserver()
 
         binding.surveyBackBtn.setOnClickListener {
+            finish()
+        }
+        binding.btnSubmit.setOnClickListener {
+            Toast.makeText(this,"설문 작성이 완료되었습니다.",Toast.LENGTH_SHORT).show()
             finish()
         }
     }

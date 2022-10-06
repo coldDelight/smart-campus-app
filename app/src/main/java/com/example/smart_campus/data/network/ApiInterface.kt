@@ -25,6 +25,9 @@ interface ApiInterface {
     @GET("/api/notice/all-app")
     suspend fun getNotice(@Query("group_id") group_id: String): Response<Notice>
 
+    @GET("/api/notice/detail-app")
+    suspend fun getNoticeDetail(@Query("notice_id") notice_id: Int): Response<NoticeDetail>
+
     @GET("/api/survey/all-app")
     suspend fun getSurvey(@Query("group_id") group_id: String): Response<Survey>
 

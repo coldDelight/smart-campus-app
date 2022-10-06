@@ -25,7 +25,8 @@ class ChatbotActivity : AppCompatActivity() {
             finish()
         }
         binding.button2.setOnClickListener {
-            viewModel.askQuestion("소중대 번호 알려줘")
+            val text = binding.editTextCahtbot.text.toString()
+            viewModel.askQuestion(text)
         }
 
 
