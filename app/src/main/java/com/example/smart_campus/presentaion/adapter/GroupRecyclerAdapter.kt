@@ -1,6 +1,7 @@
 package com.example.smart_campus.presentaion.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,7 @@ import com.example.smart_campus.model.GroupItem
 class GroupRecyclerAdapter() : RecyclerView.Adapter<GroupRecyclerAdapter.ViewHolder>() {
 private var items: Group = Group(ArrayList())
     lateinit var onItemClick : (GroupInfo)->Unit
-    lateinit var onDelClick : (String)->Unit
+    lateinit var onDelClick : (Int)->Unit
 
     var isDelSate = false
 
@@ -25,6 +26,12 @@ private var items: Group = Group(ArrayList())
     }
     // 전달받은 위치의 아이템 연결
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.itemView.setOnLongClickListener {
+//            onDelClick(items.response[position].group_id.toInt())
+            onDelClick(position)
+            true
+
+        }
         holder.itemView.setOnClickListener{
             onItemClick(GroupInfo(items.response[position].group_id,items.response[position].group_name,items.response[position].intro))
         }

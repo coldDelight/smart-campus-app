@@ -26,6 +26,12 @@ class GroupViewModel(private val repository: GroupRepository):ViewModel() {
             _retrofitGroup.value = repository.retrofitSelectAllGroup("My")
         }
     }
+    fun delGroup(group_id:Int){
+        viewModelScope.launch {
+           repository.retrofitDelGroup(group_id)
+        }
+
+    }
 
     class Factory(private val application : Application) : ViewModelProvider.Factory { // factory pattern
         override fun <T : ViewModel> create(modelClass: Class<T>): T {

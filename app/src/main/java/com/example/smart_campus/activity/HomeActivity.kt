@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -57,6 +59,12 @@ class HomeActivity : AppCompatActivity() {
             setHasStableIds(true) // 리사이클러 뷰 업데이트 시 깜빡임 방지
         }
         binding.rvAllGroup.adapter = retrofitAdapter // 리사이클러 뷰 연결
+
+        retrofitAdapter.onDelClick = {
+            deleteDialog(it)
+        }
+
+
         val swipeHelper = SwipeHelper(retrofitAdapter).apply {
             setClamp((resources.displayMetrics.widthPixels.toFloat() / 4))
         }
@@ -68,6 +76,31 @@ class HomeActivity : AppCompatActivity() {
         }
 
 
+    }
+    private fun deleteDialog(idx: Int) {
+        val id = viewModel.retrofitGroup.value?.response?.get(idx)?.group_id
+        val name = viewModel.retrofitGroup.value?.response?.get(idx)?.group_name
+        val dialog: AlertDialog = this@HomeActivity.let {
+            val builder: AlertDialog.Builder = AlertDialog.Builder(it)
+            builder.apply {
+                this.setMessage("$name 삭제하시겠습니까?")
+                this.setCancelable(false)
+                this.setPositiveButton("삭제") { dialog, _ ->
+                    if (id != null) {
+                        viewModel.delGroup(id.toInt()).also {
+                            viewModel.reLoad()
+                            Toast.makeText(this@HomeActivity,"$name 삭제되었습니다.",Toast.LENGTH_SHORT).show()
+                            dialog.dismiss()
+                        }
+                    }
+                }
+                this.setNegativeButton("취소") { dialog, _ ->
+                    dialog.cancel()
+                }
+            }
+            builder.create()
+        }
+        dialog.show()
     }
 
 

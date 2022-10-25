@@ -23,6 +23,14 @@ class GroupRepository(application: Application){
 
         return  if (response.isSuccessful) response.body() as GroupEdit else GroupEdit("")
     }
+    suspend fun retrofitDelGroup(group_id:Int): GroupEdit {
+        val jsonData: JsonObject = JsonObject().apply {
+            addProperty("group_id", group_id)
+        }
+        val response = NewworkObject.getRetrofitService.delGroup(jsonData)
+
+        return  if (response.isSuccessful) response.body() as GroupEdit else GroupEdit("")
+    }
 
 
 

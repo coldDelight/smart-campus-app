@@ -4,10 +4,7 @@ import com.example.smart_campus.model.*
 import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiInterface {
     @GET("/api/group/user-group-list")
@@ -18,6 +15,9 @@ interface ApiInterface {
 
     @POST("/api/group/add-group")
     suspend fun addGroup(@Body query:JsonObject): Response<GroupEdit>
+
+    @HTTP(method = "DELETE", path="/api/group/delete-my-group",hasBody = true)
+    suspend fun delGroup(@Body query:JsonObject): Response<GroupEdit>
 
     @GET("/api/push/my-push-log")
     suspend fun getNote(): Response<Note>
