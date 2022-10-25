@@ -18,6 +18,16 @@ class SurveyDetailViewModel(private val repository: SurveyDetailRepository,surve
 
         }
     }
+
+    fun postSurvey(answer: MutableMap<Int,String>, surveyId: String){
+        viewModelScope.launch {
+            repository.retrofitSurveyPost(answer,surveyId)
+        }
+
+    }
+
+
+
     class Factory(survey_id:Int) : ViewModelProvider.Factory { // factory pattern
         private val survey_id: Int = survey_id
         override fun <T : ViewModel> create(modelClass: Class<T>): T {

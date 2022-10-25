@@ -34,6 +34,9 @@ interface ApiInterface {
     @GET("/api/survey/detail")
     suspend fun getSurveyDetail(@Query("survey_id") survey_id: String): Response<SurveyDetail>
 
+    @POST("/api/survey/questionnaire")
+    suspend fun postSurvey(@Body query:JsonObject): Response<SurveyAnswer>
+
     @GET("/hello")
     suspend fun getChatStart(): Response<ChatbotStart>
 
