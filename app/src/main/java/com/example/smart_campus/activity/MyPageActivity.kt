@@ -9,6 +9,7 @@ import com.example.smart_campus.R
 import com.example.smart_campus.SmartCampusApp
 import com.example.smart_campus.databinding.ActivityMyPageBinding
 import com.example.smart_campus.databinding.ActivityNoticeDetailBinding
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
 class MyPageActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMyPageBinding.inflate(layoutInflater) }
@@ -32,6 +33,12 @@ class MyPageActivity : AppCompatActivity() {
         }
         binding.myBackBtn.setOnClickListener {
             finish()
+        }
+        binding.textView26.setOnClickListener{
+            Intent(applicationContext, OssLicensesMenuActivity::class.java).also {
+                OssLicensesMenuActivity.setActivityTitle("오픈소스 라이선스")
+                startActivity(it)
+            }
         }
     }
 }

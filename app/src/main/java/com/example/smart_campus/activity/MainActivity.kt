@@ -2,6 +2,7 @@ package com.example.smart_campus.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.smart_campus.R
 import com.example.smart_campus.SmartCampusApp
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnCompleteListener
             }
             val token = task.result
+            Log.e("TAG", "onCreate: $token", )
         })
         val token = SmartCampusApp.prefs.token
         if(token==R.string.default_jwt.toString()){

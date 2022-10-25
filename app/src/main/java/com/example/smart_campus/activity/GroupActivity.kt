@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.smart_campus.databinding.ActivityGroupBinding
@@ -79,10 +80,22 @@ class GroupActivity : AppCompatActivity() {
     private fun setObserver() {
         // 뷰모델 관찰
         viewModel.retrofitNotice.observe(this) {
+            if (it.response.isEmpty()){
+                binding.tvNotice.visibility = View.VISIBLE
+            }else{
+                binding.tvNotice.visibility = View.INVISIBLE
+
+            }
             viewModel.retrofitNotice.value?.let { it1 -> noticeAdapter.setData(it1) }
         }
 
         viewModel.retrofitSurvey.observe(this) {
+            if (it.response.isEmpty()){
+                binding.tvSurvey.visibility = View.VISIBLE
+            }else{
+                binding.tvSurvey.visibility = View.INVISIBLE
+
+            }
             viewModel.retrofitSurvey.value?.let { it1 -> surveyAdapter.setData(it1) }
         }
 

@@ -12,6 +12,19 @@
         android:layout_height="match_parent"
         tools:context=".activity.NoteActivity">
 
+        <TextView
+            android:id="@+id/tv_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="알림이 없습니다."
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
         <ImageButton
             android:id="@+id/group_back_btn"
             android:layout_width="wrap_content"
