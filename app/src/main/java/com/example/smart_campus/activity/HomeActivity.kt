@@ -3,6 +3,7 @@ package com.example.smart_campus.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -99,6 +100,12 @@ class HomeActivity : AppCompatActivity() {
     private fun setObserver() {
         // 뷰모델 관찰
         viewModel.retrofitGroup.observe(this) {
+            if (it.response.isEmpty()){
+                binding.tvIsgroupadded.visibility = View.VISIBLE
+            }else{
+                binding.tvIsgroupadded.visibility = View.INVISIBLE
+
+            }
             viewModel.retrofitGroup.value?.let { it1 -> retrofitAdapter.setData(it1) }
         }
 
