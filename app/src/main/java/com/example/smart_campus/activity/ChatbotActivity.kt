@@ -27,6 +27,8 @@ class ChatbotActivity : AppCompatActivity() {
         binding.button2.setOnClickListener {
             val text = binding.editTextCahtbot.text.toString()
             viewModel.askQuestion(text)
+            binding.editTextCahtbot.clearFocus()
+            binding.editTextCahtbot.setText("")
         }
 
 

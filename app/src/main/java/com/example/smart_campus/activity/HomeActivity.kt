@@ -1,12 +1,13 @@
 package com.example.smart_campus.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageButton
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
-import com.example.smart_campus.R
+import com.auth0.android.jwt.JWT
+import com.example.smart_campus.SmartCampusApp
 import com.example.smart_campus.databinding.ActivityHomePageBinding
 import com.example.smart_campus.presentaion.SwipeHelper
 import com.example.smart_campus.presentaion.adapter.GroupRecyclerAdapter
@@ -23,9 +24,18 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+        val jwt = SmartCampusApp.prefs.token?.let { JWT(it) }
+        val uid = jwt?.getClaim("STUDENT_ID")?.asString()
+        val name = jwt?.getClaim("NM")?.asString()
+        val dept = jwt?.getClaim("DEPT_NM")?.asString()
+
         setView() // 리사이클러 뷰 연결
         setObserver() // 뷰모델을 관찰합니다.
         setButton()
+
+        binding.tvHomeName.text = name
+        binding.tvHomeDept.text = dept
+        binding.tvHomeId.text = uid
 
         retrofitAdapter.onItemClick = {
             val intent = Intent(applicationContext, GroupActivity::class.java)
