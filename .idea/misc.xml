@@ -35,6 +35,11 @@
         <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/activity_notice_detail.xml" value="0.5046875" />
         <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/activity_survey_detail.xml" value="0.5046875" />
         <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/chatbot_page.xml" value="0.49818840579710144" />
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/item_multi_checkbox.xml" value="0.5036458333333333" />
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/item_multi_long.xml" value="0.5036458333333333" />
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/item_multi_radio.xml" value="0.5036458333333333" />
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/item_multi_short.xml" value="0.5046875" />
+        <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/item_muti_short.xml" value="0.5036458333333333" />
         <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/item_recycler_chatbot.xml" value="0.5036458333333333" />
         <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/item_recycler_group.xml" value="0.5" />
         <entry key="..\:/myWorld/Android/smart-campus/app/src/main/res/layout/item_recycler_group_all.xml" value="0.75" />

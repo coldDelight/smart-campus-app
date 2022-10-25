@@ -18,7 +18,7 @@ class SurveyDetailActivity : AppCompatActivity() {
     private val viewModel by lazy { ViewModelProvider(this,
         SurveyDetailViewModel.Factory(intent.getIntExtra("survey_id",-1)))[SurveyDetailViewModel::class.java] }
 
-//    private lateinit var retrofitAdapter: SurveyDetailAdapter
+    private lateinit var retrofitAdapter: SurveyDetailAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,21 +31,25 @@ class SurveyDetailActivity : AppCompatActivity() {
             finish()
         }
         binding.btnSubmit.setOnClickListener {
-            Toast.makeText(this,"설문 작성이 완료되었습니다.",Toast.LENGTH_SHORT).show()
-            finish()
+            Log.e("TAG", "onCreate: ${retrofitAdapter.answer}", )
+
+        //            Toast.makeText(this,"설문 작성이 완료되었습니다.",Toast.LENGTH_SHORT).show()
+//            finish()
         }
     }
 
     private fun setView(){
-//        retrofitAdapter =  SurveyDetailAdapter().apply {
-//            setHasStableIds(true) // 리사이클러 뷰 업데이트 시 깜빡임 방지
-//        }
-//        binding.rvSurveyDetail.adapter = retrofitAdapter
+        retrofitAdapter =  SurveyDetailAdapter().apply {
+            setHasStableIds(true) // 리사이클러 뷰 업데이트 시 깜빡임 방지
+        }
+        binding.rvSurveyDetail.adapter = retrofitAdapter
 
     }
     private fun setObserver() {
         // 뷰모델 관찰
         viewModel.retrofitSurveyDetail.observe(this) {
+            Log.e("TAG", "setObserver: $it", )
+            retrofitAdapter.setData(it)
 //            viewModel.retrofitSurveyDetail.value?.let { it1 -> retrofitAdapter.setData(it1) }
 //            viewModel.retrofitSurveyDetail.value?.let { it1 ->
 //                Log.e(
@@ -53,9 +57,9 @@ class SurveyDetailActivity : AppCompatActivity() {
 //                    "setObserver: ${it1.response}",
 //                )
 //            }
-
+//
 //        }
-
+//
         }
     }
 }

@@ -8,6 +8,7 @@ data class SurveyDetail(
 //    @SerializedName("error") val error: String,
 )
 data class SurveyDetailItem(
+    @SerializedName("survey_question_id") val  id: Int,
     @SerializedName("question") val  question: String,
     @SerializedName("type_name") val  type_name: String,
     @SerializedName("choice_content") val   choice_content: List<String>,
